@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+    const labels = xData ;
+
+    if (selectedType == singleLineChart) {
+        const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Single Line Chart',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: y1Data,
+        }]
+        };
+        const config = {
+        type: 'line',
+        data: data,
+        options: {}
+        };
+    }
+    
+    else if (selectedType == multiLineChart) {
+        const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Line 1 Chart',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: y1Data,
+        }, {
+            label: 'Line 2 Chart',
+            backgroundColor: 'rgb(132, 99, 255)',
+            borderColor: 'rgb(132, 99, 155)',
+            data: y2Data,
+        }]
+        };
+        const config = {
+        type: 'line',
+        data: data,
+        options: {}
+        };
+    }
+
+    else {
+        const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Line 1 Chart',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: y1Data,
+        }]
+        };
+        const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+        };
+    }
+  
+    
+  </script>
+
+{% endblock %}
